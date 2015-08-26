@@ -13,7 +13,7 @@ import com.softtanck.framework.R;
 public class AboutMeFragment extends BaseFragment {
     @Override
     protected int getLayoutView() {
-        return R.layout.fragment_mytask;
+        return R.layout.fragment_about_me;
     }
 
 
