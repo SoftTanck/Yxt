@@ -16,10 +16,6 @@ public class RankFragment extends BaseFragment {
         return R.layout.fragment_mytask;
     }
 
-    @Override
-    protected void onAttaching() {
-
-    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

@@ -1,15 +1,14 @@
 package com.softtanck.framework.activity;
 
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.fragment.AboutMeFragment;
-import com.softtanck.framework.fragment.RankFragment;
 import com.softtanck.framework.fragment.MyTaskFragment;
+import com.softtanck.framework.fragment.RankFragment;
 import com.softtanck.framework.utils.ScreenUtils;
 
 
@@ -82,5 +81,4 @@ public class MainActivity extends BaseActivity {
                 break;
         }
     }
-
 }

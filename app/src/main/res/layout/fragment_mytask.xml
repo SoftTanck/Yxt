@@ -4,8 +4,67 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="任务" />
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_news_vp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_home_news_point"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#88000000"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_home_news_desc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="广告内容"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_home_news_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_home_news_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/midh_news_comment_count_bg"
+                android:gravity="center"
+                android:text="163"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tv_home_news_count"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/tv_home_news_count"
+                android:background="@drawable/home_news_bg"
+                android:padding="8dp"
+                android:text="活动宣传"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+    </FrameLayout>
 </LinearLayout>

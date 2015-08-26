@@ -68,7 +68,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         gson = holder.gson;
 
 
-        onAttaching();
     }
 
     @Override
@@ -88,11 +87,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      * 获取Fragment填充布局
      */
     protected abstract int getLayoutView();
-
-    /**
-     * 当Fragment被附加的时候
-     */
-    protected abstract void onAttaching();
 
     /**
      * 当View被创建完毕的时候
