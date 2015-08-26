@@ -58,7 +58,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
         viewPager = (ViewPager) view.findViewById(R.id.home_news_vp);
         point = (ImageView) view.findViewById(R.id.iv_home_news_point);
         list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 4; i++) { // TODO 小于4的Bug尚未解决
             ImageView imageView = new ImageView(view.getContext());
             imageView.setImageResource(R.mipmap.ic_launcher);
             list.add(imageView);
@@ -72,7 +72,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
         viewPager.setOnTouchListener(this);
         new ViewpagerScroll(view.getContext(), viewPager, 1500);
         drawPoint();
-        handler.sendEmptyMessageDelayed(currentItem++, 0);
+        handler.sendEmptyMessageDelayed(currentItem++, 1500);
     }
 
     /**
@@ -124,6 +124,12 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
                 isTouch = false;
                 break;
         }
+
+//        if (event.getAction() == MotionEvent.ACTION_UP) {
+//            viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(false);
+//        } else {
+//            viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(true);
+//        }
         return false;
     }
 }
