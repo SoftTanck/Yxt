@@ -35,7 +35,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/my_task" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/rank" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/about_me" />
 
             <TextView
                 android:layout_width="wrap_content"
