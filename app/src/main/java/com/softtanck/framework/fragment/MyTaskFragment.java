@@ -132,10 +132,10 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
             case MotionEvent.ACTION_UP:
                 isTouch = false;
                 scrollView.setIsCanMove(isTouch);
-                viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(false);
+                scrollView.requestDisallowInterceptTouchEvent(false);
                 break;
             default:
-                viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(true);
+                scrollView.requestDisallowInterceptTouchEvent(true);
         }
         return false;
     }
