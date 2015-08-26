@@ -82,7 +82,7 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="1px"
+        android:layout_height="3px"
         android:layout_above="@+id/ll_home_nav"
-        android:background="#e3e3e3" />
+        android:background="#CFCFD0" />
 </RelativeLayout>
