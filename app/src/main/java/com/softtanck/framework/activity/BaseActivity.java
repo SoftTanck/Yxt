@@ -133,6 +133,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         if (null != fragment && null != fragment1) {
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.hide(fragment).hide(fragment1);
+            fragmentTransaction.commit();
         }
     }
 
@@ -145,6 +146,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         if (null != fragment) {
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.show(fragment);
+            fragmentTransaction.commit();
         }
     }
 }
