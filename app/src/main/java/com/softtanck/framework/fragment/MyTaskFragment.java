@@ -106,13 +106,13 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        currentItem = position;//假位置更新
-        currentIndex = position % list.size();//真实位置
-        drawPoint();
     }
 
     @Override
     public void onPageSelected(int position) {
+        currentItem = position;//假位置更新
+        currentIndex = position % list.size();//真实位置
+        drawPoint();
 
     }
 
