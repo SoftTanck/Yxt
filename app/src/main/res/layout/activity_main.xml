@@ -26,6 +26,7 @@
         android:padding="5dp">
 
         <LinearLayout
+            android:id="@+id/ll_home_mytask"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,6 +46,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_home_rank"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -64,6 +66,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_home_about_me"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

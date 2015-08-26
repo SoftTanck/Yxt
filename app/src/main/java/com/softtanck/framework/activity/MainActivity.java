@@ -1,7 +1,10 @@
 package com.softtanck.framework.activity;
 
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.fragment.AboutMeFragment;
@@ -15,6 +18,11 @@ public class MainActivity extends BaseActivity {
 
     private FragmentTransaction fragmentTransaction;
 
+    private LinearLayout myTask, rank, aboutme;
+    private MyTaskFragment taskFragment;
+    private RankFragment rankFragment;
+    private AboutMeFragment aboutMeFragment;
+
 
     @Override
     protected int getViewId() {
@@ -23,15 +31,30 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onActivityCreate() {
-        initMenu();
+        ScreenUtils.setChenjin(findViewById(R.id.rl), MainActivity.this);
+        initView();
+        initContent();
     }
 
-    private void initMenu() {
-        ScreenUtils.setChenjin(findViewById(R.id.rl), MainActivity.this);
+    /**
+     * 初始化布局
+     */
+    private void initView() {
+        myTask = (LinearLayout) findViewById(R.id.ll_home_mytask);
+        rank = (LinearLayout) findViewById(R.id.ll_home_rank);
+        aboutme = (LinearLayout) findViewById(R.id.ll_home_about_me);
+        myTask.setOnClickListener(this);
+        rank.setOnClickListener(this);
+        aboutme.setOnClickListener(this);
+    }
 
-        MyTaskFragment taskFragment = new MyTaskFragment();
-        RankFragment rankFragment = new RankFragment();
-        AboutMeFragment aboutMeFragment = new AboutMeFragment();
+    /**
+     * 初始化内容
+     */
+    private void initContent() {
+        taskFragment = new MyTaskFragment();
+        rankFragment = new RankFragment();
+        aboutMeFragment = new AboutMeFragment();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fl_home_content, taskFragment)
                 .add(R.id.fl_home_content, rankFragment)
@@ -39,6 +62,50 @@ public class MainActivity extends BaseActivity {
                 hide(rankFragment).
                 hide(aboutMeFragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.ll_home_mytask: // 我的任务
+                showFragment(taskFragment);
+                hideFragment(rankFragment, aboutMeFragment);
+                break;
+            case R.id.ll_home_rank: // 排行
+                showFragment(rankFragment);
+                hideFragment(taskFragment, aboutMeFragment);
+                break;
+            case R.id.ll_home_about_me://关于我
+                showFragment(aboutMeFragment);
+                hideFragment(taskFragment, rankFragment);
+                break;
+        }
+    }
+
+    /**
+     * 隐藏布局
+     *
+     * @param fragment
+     * @param fragment1
+     */
+    private void hideFragment(Fragment fragment, Fragment fragment1) {
+        if (null != fragment && null != fragment1) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.hide(fragment).hide(fragment1);
+        }
+    }
+
+    /**
+     * 展示视图
+     *
+     * @param fragment
+     */
+    private void showFragment(Fragment fragment) {
+        if (null != fragment) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.show(fragment);
+        }
     }
 
 }
