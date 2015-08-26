@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.adapter.NewsPagerAdapter;
+import com.softtanck.framework.ui.KJScrollView;
 import com.softtanck.framework.view.ViewpagerScroll;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChangeListener, View.OnTouchListener {
     private ViewPager viewPager;
+    private KJScrollView scrollView;
     private ImageView point;
     private List<ImageView> list;
     private NewsPagerAdapter adapter;
@@ -37,7 +39,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (!isTouch)
+            if (!isTouch && !scrollView.getisMoved())
                 viewPager.setCurrentItem(currentItem++);
             handler.sendEmptyMessageDelayed(currentItem, 3000);
         }
@@ -60,6 +62,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
      * @param view
      */
     private void initNews(View view) {
+        scrollView = (KJScrollView) view.findViewById(R.id.sc_home_task);
         viewPager = (ViewPager) view.findViewById(R.id.home_news_vp);
         point = (ImageView) view.findViewById(R.id.iv_home_news_point);
         list = new ArrayList<>();
@@ -124,17 +127,16 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 isTouch = true;
+                scrollView.setIsCanMove(isTouch);
                 break;
             case MotionEvent.ACTION_UP:
                 isTouch = false;
+                scrollView.setIsCanMove(isTouch);
+                viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(false);
                 break;
+            default:
+                viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(true);
         }
-
-//        if (event.getAction() == MotionEvent.ACTION_UP) {
-//            viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(false);
-//        } else {
-//            viewPager.getParent().getParent().getParent().requestDisallowInterceptTouchEvent(true);
-//        }
         return false;
     }
 }
