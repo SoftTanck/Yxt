@@ -50,7 +50,6 @@ public class MenuFragment extends BaseFragment {
         switch (v.getId()) {
             case R.id.iv_my_task: // 我的任务
                 changeFragment(R.id.fl_home_content,new MyTaskFragment());
-                MainActivity.sm.toggle();
                 break;
             case R.id.iv_news: // 新闻公告
                 changeFragment(R.id.fl_home_content, new NewsFragment());

@@ -24,6 +24,5 @@ public class LearnRecordFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        MainActivity.sm.toggle();
     }
 }

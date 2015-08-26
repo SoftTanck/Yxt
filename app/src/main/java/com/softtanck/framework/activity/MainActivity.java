@@ -28,10 +28,10 @@ public class MainActivity extends BaseActivity {
     private void initMenu() {
         ScreenUtils.setChenjin(findViewById(R.id.rl), MainActivity.this);
 
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fl_home_menu, new MenuFragment());
-        fragmentTransaction.replace(R.id.fl_home_content, new MyTaskFragment());
-        fragmentTransaction.commit();
+//        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+////        fragmentTransaction.replace(R.id.fl_home_menu, new MenuFragment());
+//        fragmentTransaction.replace(R.id.fl_home_content, new MyTaskFragment());
+//        fragmentTransaction.commit();
     }
 
 }

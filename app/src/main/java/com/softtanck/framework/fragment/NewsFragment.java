@@ -65,7 +65,6 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        MainActivity.sm.toggle();
         initTitle();
 
         initView(view);
