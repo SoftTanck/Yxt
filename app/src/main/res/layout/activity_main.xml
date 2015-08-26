@@ -9,16 +9,10 @@
         android:id="@+id/comm_titleView"
         layout="@layout/view_common_title" />
 
-    <FrameLayout
-        android:id="@+id/fl_home_content"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/comm_titleView"
-        android:background="@color/xwhite" />
-
 
     <LinearLayout
         android:id="@+id/ll_home_nav"
+        android:background="@color/xwhite"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -85,6 +79,14 @@
                 android:text="关于我" />
         </LinearLayout>
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_home_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/ll_home_nav"
+        android:layout_below="@id/comm_titleView"
+        android:background="@color/xwhite" />
 
     <View
         android:layout_width="fill_parent"
