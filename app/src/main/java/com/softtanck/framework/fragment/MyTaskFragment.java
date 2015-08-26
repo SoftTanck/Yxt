@@ -54,6 +54,11 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
         initNews(view);
     }
 
+    /**
+     * 初始化新闻布局
+     *
+     * @param view
+     */
     private void initNews(View view) {
         viewPager = (ViewPager) view.findViewById(R.id.home_news_vp);
         point = (ImageView) view.findViewById(R.id.iv_home_news_point);
