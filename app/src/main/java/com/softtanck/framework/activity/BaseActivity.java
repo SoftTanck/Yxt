@@ -2,7 +2,9 @@ package com.softtanck.framework.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -42,6 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public Context context;
     /** 网络工具*/
     public VolleyUtils volleyUtils;
+    private FragmentTransaction fragmentTransaction;
 
 
     @Override
@@ -120,4 +123,28 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     protected abstract void onActivityCreate();
 
+    /**
+     * 隐藏布局
+     *
+     * @param fragment
+     * @param fragment1
+     */
+    public void hideFragment(Fragment fragment, Fragment fragment1) {
+        if (null != fragment && null != fragment1) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.hide(fragment).hide(fragment1);
+        }
+    }
+
+    /**
+     * 展示视图
+     *
+     * @param fragment
+     */
+    public void showFragment(Fragment fragment) {
+        if (null != fragment) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.show(fragment);
+        }
+    }
 }

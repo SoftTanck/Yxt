@@ -83,29 +83,4 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /**
-     * 隐藏布局
-     *
-     * @param fragment
-     * @param fragment1
-     */
-    private void hideFragment(Fragment fragment, Fragment fragment1) {
-        if (null != fragment && null != fragment1) {
-            fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.hide(fragment).hide(fragment1);
-        }
-    }
-
-    /**
-     * 展示视图
-     *
-     * @param fragment
-     */
-    private void showFragment(Fragment fragment) {
-        if (null != fragment) {
-            fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.show(fragment);
-        }
-    }
-
 }
