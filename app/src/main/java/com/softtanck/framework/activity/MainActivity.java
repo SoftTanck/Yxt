@@ -4,8 +4,6 @@ package com.softtanck.framework.activity;
 import android.support.v4.app.FragmentTransaction;
 
 import com.softtanck.framework.R;
-import com.softtanck.framework.fragment.MyTaskFragment;
-import com.softtanck.framework.slidingmenu.SlidingMenu;
 import com.softtanck.framework.utils.ScreenUtils;
 
 
