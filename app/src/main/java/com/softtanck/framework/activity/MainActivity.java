@@ -13,7 +13,6 @@ public class MainActivity extends BaseActivity {
 
 
     private FragmentTransaction fragmentTransaction;
-    public static SlidingMenu sm;
 
 
     @Override
@@ -27,15 +26,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initMenu() {
-//        sm = new SlidingMenu(getApplicationContext());
-//        sm.setMode(SlidingMenu.LEFT_RIGHT);
-//        sm.setShadowWidth(50);
-//        sm.setShadowDrawable(R.drawable.shadow);
-//        sm.setBehindOffset(ConValue.ScreenWidth / 3);
-//        sm.setFadeDegree(0.35f);
-//        sm.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-//        sm.setMenu(R.layout.frame_menu);
-//        sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         ScreenUtils.setChenjin(findViewById(R.id.rl), MainActivity.this);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
