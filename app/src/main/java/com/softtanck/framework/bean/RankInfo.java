@@ -1,24 +1,24 @@
 package com.softtanck.framework.bean;
 
-/**ÅÅÃûĞÅÏ¢
+/**æ’åä¿¡æ¯
  * Created by herui on 8/26/2015.
  */
 public class RankInfo {
 
     /**
-     * ĞòºÅ
+     * åºå·
      */
     private String number;
     /**
-     * ¹¤ºÅ
+     * å·¥å·
      */
     private String staffNumber;
     /**
-     * ĞÕÃû
+     * å§“å
      */
     private String staffName;
     /**
-     * ·ÖÖµ
+     * åˆ†å€¼
      */
     private String score;
 
