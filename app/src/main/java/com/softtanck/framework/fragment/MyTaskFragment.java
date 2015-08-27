@@ -60,6 +60,17 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         initNews(view);
+        initTop(view);
+    }
+
+    /**
+     * 初始化广告上面气泡监听[两个]
+     *
+     * @param view
+     */
+    private void initTop(View view) {
+        view.findViewById(R.id.tv_home_news_top_one).setOnClickListener(this);
+        view.findViewById(R.id.tv_home_news_count).setOnClickListener(this);
     }
 
     /**
@@ -68,8 +79,8 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
      * @param view
      */
     private void initNews(View view) {
-        mySchoolBag=(LinearLayout)view.findViewById(R.id.mySchoolBag);
-        signUp=(LinearLayout)view.findViewById(R.id.quicklySignUp);
+        mySchoolBag = (LinearLayout) view.findViewById(R.id.mySchoolBag);
+        signUp = (LinearLayout) view.findViewById(R.id.quicklySignUp);
         mySchoolBag.setOnClickListener(this);
         signUp.setOnClickListener(this);
         scrollView = (KJScrollView) view.findViewById(R.id.sc_home_task);
@@ -153,7 +164,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        Bundle bundle=null;
+        Bundle bundle = null;
         switch (v.getId()) {
             case R.id.tv_home_news_count:
             case R.id.tv_home_news_top_one:
@@ -164,7 +175,7 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
                 holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class, bundle);
                 break;
             case R.id.mySchoolBag:
-                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class,bundle);
+                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class, bundle);
                 break;
 
         }
