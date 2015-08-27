@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/image_load"
+    android:layout_marginTop="10dp"
+    >
+
+        <ImageView
+            android:id="@+id/childVideo_left"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/ratio_1"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:id="@+id/childVideo_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/task_section_download"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/childVideo_Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/childVideo_left"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:text="Moto X拆装机教程"/>
+
+</RelativeLayout>

@@ -12,7 +12,7 @@ import com.softtanck.framework.bean.RankInfo;
 
 import java.util.List;
 
-/**������������
+/**排名的适配器
  * Created by herui on 8/26/2015.
  */
 public class RankAdapter extends BaseAdapter{
