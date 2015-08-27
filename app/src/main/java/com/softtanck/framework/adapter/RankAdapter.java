@@ -12,7 +12,7 @@ import com.softtanck.framework.bean.RankInfo;
 
 import java.util.List;
 
-/**ÅÅÃûµÄÊÊÅäÆ÷
+/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * Created by herui on 8/26/2015.
  */
 public class RankAdapter extends BaseAdapter{

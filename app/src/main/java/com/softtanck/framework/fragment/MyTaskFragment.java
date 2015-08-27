@@ -1,5 +1,6 @@
 package com.softtanck.framework.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,8 +12,10 @@ import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.softtanck.framework.R;
+import com.softtanck.framework.activity.YiQuanerActivity;
 import com.softtanck.framework.adapter.NewsPagerAdapter;
 import com.softtanck.framework.ui.KJScrollView;
 import com.softtanck.framework.view.ViewpagerScroll;
@@ -54,6 +57,17 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         initNews(view);
+        initTop(view);
+    }
+
+    /**
+     * 初始广告上面气泡[上面两个气泡]
+     *
+     * @param view
+     */
+    private void initTop(View view) {
+        view.findViewById(R.id.tv_home_news_top_one).setOnClickListener(this);
+        view.findViewById(R.id.tv_home_news_count).setOnClickListener(this);
     }
 
     /**
@@ -138,5 +152,18 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
                 scrollView.requestDisallowInterceptTouchEvent(true);
         }
         return false;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.tv_home_news_count:
+            case R.id.tv_home_news_top_one:
+                Intent YiQuaner = new Intent(context, YiQuanerActivity.class);
+                startActivity(YiQuaner);
+                break;
+        }
     }
 }

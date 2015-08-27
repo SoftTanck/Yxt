@@ -46,7 +46,7 @@
         </activity>
 
         <activity android:name="com.softtanck.framework.activity.NewsDetailActivity" />
-
+        <activity android:name="com.softtanck.framework.activity.YiQuanerActivity"/>
 
         <!-- 开机自启动服务 -->
         <receiver android:name="com.easemob.chat.StartServiceReceiver">

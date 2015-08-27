@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00AAE9"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/comm_titleView"
+        layout="@layout/view_common_title" />
+
+    <com.softtanck.framework.pulltorefresh.PullToRefreshListView
+        android:id="@+id/pl_quaner_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/ic_v4_theme_default_main_bg"
+        android:divider="@null"
+        android:scrollbars="none" />
+</LinearLayout>

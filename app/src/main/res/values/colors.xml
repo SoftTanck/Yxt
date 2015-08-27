@@ -8,8 +8,10 @@
 
     <color name="xblack">#FF000000</color>
 
+    <color name="gray_black">#77000000</color>
+
     <!-- volley image load color -->
-    <color name="image_load">#DDDDDD</color>
+    <color name="image_load">#88DDDDDD</color>
     <color name="image_error">#666666</color>
     <!--  -->
 

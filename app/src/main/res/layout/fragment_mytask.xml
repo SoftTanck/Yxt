@@ -61,6 +61,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/tv_home_news_top_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/tv_home_news_count"

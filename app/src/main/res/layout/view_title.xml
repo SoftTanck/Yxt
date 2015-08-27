@@ -68,8 +68,8 @@
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="3px"
-            android:background="#CFCFD0" />
+            android:layout_height="1px"
+            android:background="@color/gray_black" />
     </LinearLayout>
 
 </FrameLayout>
