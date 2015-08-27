@@ -1,6 +1,7 @@
 package com.softtanck.framework.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,8 +18,8 @@ import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.softtanck.framework.ActivityContainer;
 import com.softtanck.framework.App;
+import com.softtanck.framework.ConValue;
 import com.softtanck.framework.R;
-import com.softtanck.framework.slidingmenu.app.SlidingFragmentActivity;
 import com.softtanck.framework.utils.VolleyUtils;
 import com.softtanck.framework.view.TitleView;
 
@@ -148,5 +149,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             fragmentTransaction.show(fragment);
             fragmentTransaction.commit();
         }
+    }
+
+    /**Activity带参数跳转
+     * @param activity
+     * @param bundle
+     */
+    public void changeActivityWithBundle(Class<?>activity,Bundle bundle){
+        Intent intent=new Intent(this,activity);
+        intent.putExtra(ConValue.FUNCTION_TYPE_TAG,bundle);
+        startActivity(intent);
     }
 }
