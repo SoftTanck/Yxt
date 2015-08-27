@@ -12,8 +12,10 @@ import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.softtanck.framework.R;
+import com.softtanck.framework.activity.MySchoolBagAndSignUpActivity;
 import com.softtanck.framework.activity.YiQuanerActivity;
 import com.softtanck.framework.adapter.NewsPagerAdapter;
 import com.softtanck.framework.ui.KJScrollView;
@@ -31,6 +33,8 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     private ViewPager viewPager;
     private KJScrollView scrollView;
     private ImageView point;
+    private LinearLayout mySchoolBag;
+    private LinearLayout signUp;
     private List<ImageView> list;
     private NewsPagerAdapter adapter;
     private int currentItem;
@@ -64,6 +68,10 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
      * @param view
      */
     private void initNews(View view) {
+        mySchoolBag=(LinearLayout)view.findViewById(R.id.mySchoolBag);
+        signUp=(LinearLayout)view.findViewById(R.id.quicklySignUp);
+        mySchoolBag.setOnClickListener(this);
+        signUp.setOnClickListener(this);
         scrollView = (KJScrollView) view.findViewById(R.id.sc_home_task);
         viewPager = (ViewPager) view.findViewById(R.id.home_news_vp);
         point = (ImageView) view.findViewById(R.id.iv_home_news_point);
@@ -145,12 +153,20 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     @Override
     public void onClick(View v) {
         super.onClick(v);
+        Bundle bundle=null;
         switch (v.getId()) {
             case R.id.tv_home_news_count:
             case R.id.tv_home_news_top_one:
                 Intent YiQuaner = new Intent(context, YiQuanerActivity.class);
                 startActivity(YiQuaner);
                 break;
+            case R.id.quicklySignUp:
+                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class, bundle);
+                break;
+            case R.id.mySchoolBag:
+                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class,bundle);
+                break;
+
         }
     }
 

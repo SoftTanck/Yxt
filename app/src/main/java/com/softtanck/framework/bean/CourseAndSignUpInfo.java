@@ -2,28 +2,28 @@ package com.softtanck.framework.bean;
 
 import java.util.List;
 
-/**¿Î³ÌºÍ±¨ÃûµÄ¸¸Bean
+/**è¯¾ç¨‹å’ŒæŠ¥åçš„çˆ¶Bean
  * Created by herui on 8/27/2015.
  */
 public class CourseAndSignUpInfo {
     /**
-     * ¸¸±êÌâÀàĞÍ
+     * çˆ¶æ ‡é¢˜ç±»å‹
      */
     private String parentType;
     /**
-     * ¸¸±êÌâÊ±¼ä
+     * çˆ¶æ ‡é¢˜æ—¶é—´
      */
     private String parentTime;
     /**
-     * ¸¸±êÌâÄÚÈİ
+     * çˆ¶æ ‡é¢˜å†…å®¹
      */
     private String parentContent;
     /**
-     * ¸¸±êÌâÔÄ¶ÁµÄ°Ù·Ö±È
+     * çˆ¶æ ‡é¢˜é˜…è¯»çš„ç™¾åˆ†æ¯”
      */
     private int parentPercent;
     /**
-     * ¸¸±êÌâ°üº¬µÄ×ÓÀà¼¯ºÏ
+     * çˆ¶æ ‡é¢˜åŒ…å«çš„å­ç±»é›†åˆ
      */
     private List<ChildCourseAndSignUpInfo> list;
     public List<ChildCourseAndSignUpInfo> getList() {
