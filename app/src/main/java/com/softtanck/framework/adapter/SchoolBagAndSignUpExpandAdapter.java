@@ -104,6 +104,24 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
+    @Override
+    public void onGroupExpanded(int groupPosition) {
+        super.onGroupExpanded(groupPosition);
+        Log.d("ruihe", "------>展开");
+        for (int i=0;i<getGroupCount();i++){
+            if (i!=groupPosition){
+                onGroupCollapsed(i);
+            }
+
+        }
+    }
+
+    @Override
+    public void onGroupCollapsed(int groupPosition) {
+        super.onGroupCollapsed(groupPosition);
+        Log.d("ruihe", "------>关闭");
+    }
+
     /**获取一个视图显示给定组，存放父元素
      * @param groupPosition
      * @param isExpanded
@@ -126,7 +144,7 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         }else{
             holder=(ViewHolder)convertView.getTag();
         }
-
+        Log.d("ruihe","------>");
         //父标题左上角内容
         holder.leftTv.setText(getGroup(groupPosition).getParentType());
         //父标题右上角内容
@@ -151,7 +169,7 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         ChildCourseAndSignUpInfo child=getChild(groupPosition,childPosition);
         int childType=child.getChildType();
         Log.d("ruihe","------>1");
-        if (convertView==null ||!(convertView.getTag() instanceof ViewHolder)){
+        if (convertView==null ){
             viewHolder=new ViewHolder();
             convertView=getChildrenView(child);
             switch (childType){
@@ -192,7 +210,6 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
                 Log.d("ruihe", "------>Video2");
                 break;
         }
-
 
         return convertView;
     }

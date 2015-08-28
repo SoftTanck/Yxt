@@ -43,7 +43,7 @@ public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
     }
 
     private void initExpandListView() {
-        pullRefreshExpandableList=(PullToRefreshExpandableListView)findViewById(R.id.pull_refresh_expandable_list);
+       pullRefreshExpandableList=(PullToRefreshExpandableListView)findViewById(R.id.pull_refresh_expandable_list);
         CourseAndSignUpInfo info=new CourseAndSignUpInfo();
         info.setParentType("其他");
         info.setParentTime("3天后过期");
@@ -83,12 +83,19 @@ public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
         childInfo.add(c3);
         info1.setList(childInfo);
 
-        list.add(info);
-        list.add(info1);
+
+        for (int i=0;i<100;i++){
+            if ((i%2)==0){
+                list.add(info);
+            }else{
+                  list.add(info1);
+            }
+        }
+
         adapter=new SchoolBagAndSignUpExpandAdapter(this,list);
        // pullRefreshExpandableList.setAdapter((ListAdapter)adapter);
         setListAdapter(adapter);
         //pullRefreshExpandableList.setRefreshing(false);
 
-    }
+}
 }
