@@ -1,6 +1,7 @@
 package com.softtanck.framework.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,41 +150,46 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         ViewHolder viewHolder;
         ChildCourseAndSignUpInfo child=getChild(groupPosition,childPosition);
         int childType=child.getChildType();
-        if (convertView==null){
+        Log.d("ruihe","------>1");
+        if (convertView==null ||!(convertView.getTag() instanceof ViewHolder)){
             viewHolder=new ViewHolder();
             convertView=getChildrenView(child);
             switch (childType){
                 case TITLE:
+                    Log.d("ruihe","------>Title");
                     viewHolder.content=(TextView)convertView.findViewById(R.id.childTitle_content);
                     break;
                 case DOC:
+                    Log.d("ruihe","------>Doc");
                     viewHolder.leftImage=(ImageView)convertView.findViewById(R.id.childDoc_left);
                     viewHolder.content=(TextView)convertView.findViewById(R.id.childDoc_content);
                     break;
                 case VIDEO:
+                    Log.d("ruihe","------>Video");
                     viewHolder.leftImage=(ImageView)convertView.findViewById(R.id.childVideo_left);
                     viewHolder.rightImage=(ImageView)convertView.findViewById(R.id.childVideo_right);
                     viewHolder.content=(TextView)convertView.findViewById(R.id.childVideo_Content);
                     break;
             }
-
             convertView.setTag(viewHolder);
         }else {
             viewHolder=(ViewHolder)convertView.getTag();
         }
 
-
         switch (childType){
             case TITLE:
                 viewHolder.content.setText(child.getChildContent());
+                Log.d("ruihe", "------>Title2");
                 break;
             case DOC:
                 viewHolder.leftImage.setImageResource(R.drawable.ratio_4);
                 viewHolder.content.setText(child.getChildContent());
+                Log.d("ruihe", "------>Doc2");
                 break;
             case VIDEO:
                 viewHolder.leftImage.setImageResource(R.drawable.ratio_100);
                 viewHolder.content.setText(child.getChildContent());
+                Log.d("ruihe", "------>Video2");
                 break;
         }
 
