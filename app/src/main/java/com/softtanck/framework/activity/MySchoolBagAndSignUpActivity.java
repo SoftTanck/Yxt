@@ -1,7 +1,8 @@
 
 package com.softtanck.framework.activity;
 
-import android.widget.ListAdapter;
+import android.app.ExpandableListActivity;
+import android.os.Bundle;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.adapter.SchoolBagAndSignUpExpandAdapter;
@@ -9,19 +10,20 @@ import com.softtanck.framework.bean.ChildCourseAndSignUpInfo;
 import com.softtanck.framework.bean.CourseAndSignUpInfo;
 import com.softtanck.framework.pulltorefresh.PullToRefreshExpandableListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 /**
  * 我的书包和闪电报名的页面
  */
-public class MySchoolBagAndSignUpActivity extends BaseActivity  {
+public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
 
     private PullToRefreshExpandableListView pullRefreshExpandableList;
     private SchoolBagAndSignUpExpandAdapter adapter;
-    private List<CourseAndSignUpInfo>list;
+    private List<CourseAndSignUpInfo>list=new ArrayList<>();
 
-
+/*
     @Override
     protected int getViewId() {
         return R.layout.activity_my_school_bag_and_sign_up;
@@ -31,6 +33,13 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity  {
     protected void onActivityCreate() {
         initExpandListView();
 
+    }*/
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_school_bag_and_sign_up);
+        initExpandListView();
     }
 
     private void initExpandListView() {
@@ -45,8 +54,10 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity  {
         ChildCourseAndSignUpInfo child1=new ChildCourseAndSignUpInfo();
         child1.setChildType(2);
         child1.setChildContent("wifi下观看视频moto拆装");
-        info.getList().add(child0);
-        info.getList().add(child1);
+        List<ChildCourseAndSignUpInfo>childCourseAndSignUpInfo=new ArrayList<>();
+        childCourseAndSignUpInfo.add(child0);
+        childCourseAndSignUpInfo.add(child1);
+        info.setList(childCourseAndSignUpInfo);
 
 
         CourseAndSignUpInfo info1=new CourseAndSignUpInfo();
@@ -60,20 +71,24 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity  {
         c1.setChildType(1);
         c1.setChildContent("1、A330产品功能介绍(一)");
         ChildCourseAndSignUpInfo c2=new ChildCourseAndSignUpInfo();
-        c1.setChildType(1);
-        c1.setChildContent("2、A330产品功能介绍(二)");
+        c2.setChildType(1);
+        c2.setChildContent("2、A330产品功能介绍(二)");
         ChildCourseAndSignUpInfo c3=new ChildCourseAndSignUpInfo();
-        c1.setChildType(1);
-        c1.setChildContent("3、A330产品功能介绍(三)");
-        info1.getList().add(c0);
-        info1.getList().add(c1);
-        info1.getList().add(c2);
-        info1.getList().add(c3);
+        c3.setChildType(1);
+        c3.setChildContent("3、A330产品功能介绍(三)");
+        List<ChildCourseAndSignUpInfo>childInfo=new ArrayList<>();
+        childInfo.add(c0);
+        childInfo.add(c1);
+        childInfo.add(c2);
+        childInfo.add(c3);
+        info1.setList(childInfo);
 
         list.add(info);
         list.add(info1);
-        adapter=new SchoolBagAndSignUpExpandAdapter(context,list);
-        pullRefreshExpandableList.setAdapter((ListAdapter)adapter);
+        adapter=new SchoolBagAndSignUpExpandAdapter(this,list);
+       // pullRefreshExpandableList.setAdapter((ListAdapter)adapter);
+        setListAdapter(adapter);
+        //pullRefreshExpandableList.setRefreshing(false);
 
     }
 }
