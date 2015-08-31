@@ -210,8 +210,6 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         TextView leftTv;
         TextView rightTv;
         TextView content;
-        ImageView leftImage;
-        ImageView rightImage;
     }
     public   class ChildViewHolder{
         TextView content;
