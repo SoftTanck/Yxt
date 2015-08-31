@@ -731,7 +731,7 @@ public class CustomViewAbove extends ViewGroup {
 				final int scrollX = getScrollX();
 				//				final int widthWithMargin = getWidth();
 				//				final float pageOffset = (float) (scrollX % widthWithMargin) / widthWithMargin;
-				// TODO test this. should get better flinging behavior
+				// TODO item_task_ad_top_header this. should get better flinging behavior
 				final float pageOffset = (float) (scrollX - getDestScrollX(mCurItem)) / getBehindWidth();
 				final int activePointerIndex = getPointerIndex(ev, mActivePointerId);
 				if (mActivePointerId != INVALID_POINTER) {
@@ -886,7 +886,7 @@ public class CustomViewAbove extends ViewGroup {
 	/**
 	 * Tests scrollability within child views of v given a delta of dx.
 	 *
-	 * @param v View to test for horizontal scrollability
+	 * @param v View to item_task_ad_top_header for horizontal scrollability
 	 * @param checkV Whether the view v passed should itself be checked for scrollability (true),
 	 *               or just its children (false).
 	 * @param dx Delta scrolled in pixels

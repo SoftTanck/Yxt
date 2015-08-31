@@ -73,7 +73,7 @@ public class ChatActivity extends BaseActivity {
 
         DialogUtils.init(ChatActivity.this).createDownLoadProgressBar(5);
 
-        LogUtils.d("test");
+        LogUtils.d("item_task_ad_top_header");
         EMChatManager.getInstance().login("tanck", "422013", new EMCallBack() {
             @Override
             public void onSuccess() {

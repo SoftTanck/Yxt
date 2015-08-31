@@ -1,6 +1,6 @@
 package com.softtanck.framework.activity;
 
-import android.widget.ListView;
+import android.view.View;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.adapter.QuanerAdapter;
