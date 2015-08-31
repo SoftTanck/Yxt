@@ -3,6 +3,7 @@ package com.softtanck.framework.activity;
 
 import android.app.ExpandableListActivity;
 import android.os.Bundle;
+import android.widget.ExpandableListView;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.adapter.SchoolBagAndSignUpExpandAdapter;
@@ -22,6 +23,7 @@ public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
     private PullToRefreshExpandableListView pullRefreshExpandableList;
     private SchoolBagAndSignUpExpandAdapter adapter;
     private List<CourseAndSignUpInfo>list=new ArrayList<>();
+    private ExpandableListView expandableListView;
 
 /*
     @Override
@@ -43,7 +45,8 @@ public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
     }
 
     private void initExpandListView() {
-       pullRefreshExpandableList=(PullToRefreshExpandableListView)findViewById(R.id.pull_refresh_expandable_list);
+        pullRefreshExpandableList=(PullToRefreshExpandableListView)findViewById(R.id.pull_refresh_expandable_list);
+        //expandableListView=(ExpandableListView)findViewById(R.id.expand);
         CourseAndSignUpInfo info=new CourseAndSignUpInfo();
         info.setParentType("其他");
         info.setParentTime("3天后过期");
@@ -82,20 +85,15 @@ public class MySchoolBagAndSignUpActivity extends ExpandableListActivity {
         childInfo.add(c2);
         childInfo.add(c3);
         info1.setList(childInfo);
-
-
         for (int i=0;i<100;i++){
             if ((i%2)==0){
                 list.add(info);
             }else{
-                  list.add(info1);
+                list.add(info1);
             }
         }
-
         adapter=new SchoolBagAndSignUpExpandAdapter(this,list);
-       // pullRefreshExpandableList.setAdapter((ListAdapter)adapter);
         setListAdapter(adapter);
-        //pullRefreshExpandableList.setRefreshing(false);
-
+       // expandableListView.setAdapter(adapter);
 }
 }

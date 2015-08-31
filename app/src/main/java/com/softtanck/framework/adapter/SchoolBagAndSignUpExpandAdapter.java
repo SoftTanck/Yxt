@@ -108,12 +108,12 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
     public void onGroupExpanded(int groupPosition) {
         super.onGroupExpanded(groupPosition);
         Log.d("ruihe", "------>展开");
-        for (int i=0;i<getGroupCount();i++){
+       /* for (int i=0;i<getGroupCount();i++){
             if (i!=groupPosition){
                 onGroupCollapsed(i);
             }
 
-        }
+        }*/
     }
 
     @Override
@@ -131,20 +131,13 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-
-        ViewHolder holder;
-
         if (convertView==null){
-            holder=new ViewHolder();
             convertView=inflater.inflate(R.layout.course_and_signup_parent_item,null);
-            holder.leftTv=(TextView)convertView.findViewById(R.id.parentType);
-            holder.rightTv=(TextView)convertView.findViewById(R.id.parentTime);
-            holder.content=(TextView)convertView.findViewById(R.id.parentContent);
-            convertView.setTag(holder);
-        }else{
-            holder=(ViewHolder)convertView.getTag();
         }
-        Log.d("ruihe","------>");
+        ViewHolder holder=new ViewHolder();
+        holder.leftTv=(TextView)convertView.findViewById(R.id.parentType);
+        holder.rightTv=(TextView)convertView.findViewById(R.id.parentTime);
+        holder.content=(TextView)convertView.findViewById(R.id.parentContent);
         //父标题左上角内容
         holder.leftTv.setText(getGroup(groupPosition).getParentType());
         //父标题右上角内容
@@ -165,49 +158,29 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
         ChildCourseAndSignUpInfo child=getChild(groupPosition,childPosition);
         int childType=child.getChildType();
-        Log.d("ruihe","------>1");
         if (convertView==null ){
-            viewHolder=new ViewHolder();
             convertView=getChildrenView(child);
-            switch (childType){
-                case TITLE:
-                    Log.d("ruihe","------>Title");
-                    viewHolder.content=(TextView)convertView.findViewById(R.id.childTitle_content);
-                    break;
-                case DOC:
-                    Log.d("ruihe","------>Doc");
-                    viewHolder.leftImage=(ImageView)convertView.findViewById(R.id.childDoc_left);
-                    viewHolder.content=(TextView)convertView.findViewById(R.id.childDoc_content);
-                    break;
-                case VIDEO:
-                    Log.d("ruihe","------>Video");
-                    viewHolder.leftImage=(ImageView)convertView.findViewById(R.id.childVideo_left);
-                    viewHolder.rightImage=(ImageView)convertView.findViewById(R.id.childVideo_right);
-                    viewHolder.content=(TextView)convertView.findViewById(R.id.childVideo_Content);
-                    break;
             }
-            convertView.setTag(viewHolder);
-        }else {
-            viewHolder=(ViewHolder)convertView.getTag();
-        }
-
+        ChildViewHolder childHolder=new ChildViewHolder();
         switch (childType){
             case TITLE:
-                viewHolder.content.setText(child.getChildContent());
-                Log.d("ruihe", "------>Title2");
+                childHolder.content=(TextView)convertView.findViewById(R.id.childTitle_content);
+                childHolder.content.setText(child.getChildContent());
                 break;
             case DOC:
-                viewHolder.leftImage.setImageResource(R.drawable.ratio_4);
-                viewHolder.content.setText(child.getChildContent());
-                Log.d("ruihe", "------>Doc2");
+                childHolder.leftImage=(ImageView)convertView.findViewById(R.id.childDoc_left);
+                childHolder.content=(TextView)convertView.findViewById(R.id.childDoc_content);
+                childHolder.leftImage.setImageResource(R.drawable.ratio_4);
+                childHolder.content.setText(child.getChildContent());
                 break;
             case VIDEO:
-                viewHolder.leftImage.setImageResource(R.drawable.ratio_100);
-                viewHolder.content.setText(child.getChildContent());
-                Log.d("ruihe", "------>Video2");
+                childHolder.leftImage=(ImageView)convertView.findViewById(R.id.childVideo_left);
+                childHolder.rightImage=(ImageView)convertView.findViewById(R.id.childVideo_right);
+                childHolder.content=(TextView)convertView.findViewById(R.id.childVideo_Content);
+                childHolder.leftImage.setImageResource(R.drawable.ratio_100);
+                childHolder.content.setText(child.getChildContent());
                 break;
         }
 
@@ -233,12 +206,18 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         }
     }
 
-    public static  class ViewHolder{
+    public   class ViewHolder{
         TextView leftTv;
         TextView rightTv;
         TextView content;
         ImageView leftImage;
         ImageView rightImage;
+    }
+    public   class ChildViewHolder{
+        TextView content;
+        ImageView leftImage;
+        ImageView rightImage;
+
     }
 
 
