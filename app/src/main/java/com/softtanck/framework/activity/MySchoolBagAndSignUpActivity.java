@@ -1,6 +1,7 @@
 
 package com.softtanck.framework.activity;
 
+import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.softtanck.framework.ConValue;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * 我的书包和闪电报名的页面
  */
-public class MySchoolBagAndSignUpActivity extends BaseActivity {
+public class MySchoolBagAndSignUpActivity extends BaseActivity implements ExpandableListView.OnGroupExpandListener,ExpandableListView.OnChildClickListener{
 
     private PullToRefreshExpandableListView pullRefreshExpandableList;
     private SchoolBagAndSignUpExpandAdapter adapter;
@@ -63,17 +64,11 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity {
         expandableListView = pullRefreshExpandableList.getLv();
         expandableListView.setAdapter(adapter);
         expandableListView.setGroupIndicator(null);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (i != groupPosition && expandableListView.isGroupExpanded(i)) {
-                        expandableListView.collapseGroup(i);
-                    }
-                }
-            }
-        });
+        expandableListView.setOnGroupExpandListener(this);
+        expandableListView.setOnChildClickListener(this);
     }
+
+
 
 
     private List<CourseAndSignUpInfo>getCourseInfo(){
@@ -165,5 +160,31 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity {
     }
 
 
+    /**选中子视图的监听
+     * @param expandableListView
+     * @param view
+     * @param groupPosition
+     * @param childPosition
+     * @param l
+     * @return
+     */
+    @Override
+    public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+        String content=list.get(groupPosition).getList().get(childPosition).getChildContent();
+        showToast("选中的子视图："+content);
 
+        return false;
+    }
+
+    /**父视图展开的监听
+     * @param groupPosition
+     */
+    @Override
+    public void onGroupExpand(int groupPosition) {
+        for (int i = 0; i < list.size(); i++) {
+            if (i != groupPosition && expandableListView.isGroupExpanded(i)) {
+                expandableListView.collapseGroup(i);
+            }
+        }
+    }
 }
