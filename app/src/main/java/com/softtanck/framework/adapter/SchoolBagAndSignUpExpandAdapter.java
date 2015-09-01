@@ -1,12 +1,12 @@
 package com.softtanck.framework.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.softtanck.framework.R;
@@ -104,23 +104,6 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    @Override
-    public void onGroupExpanded(int groupPosition) {
-        super.onGroupExpanded(groupPosition);
-        Log.d("ruihe", "------>展开");
-       /* for (int i=0;i<getGroupCount();i++){
-            if (i!=groupPosition){
-                onGroupCollapsed(i);
-            }
-
-        }*/
-    }
-
-    @Override
-    public void onGroupCollapsed(int groupPosition) {
-        super.onGroupCollapsed(groupPosition);
-        Log.d("ruihe", "------>关闭");
-    }
 
     /**获取一个视图显示给定组，存放父元素
      * @param groupPosition
@@ -134,17 +117,21 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         if (convertView==null){
             convertView=inflater.inflate(R.layout.course_and_signup_parent_item,null);
         }
-        ViewHolder holder=new ViewHolder();
-        holder.leftTv=(TextView)convertView.findViewById(R.id.parentType);
-        holder.rightTv=(TextView)convertView.findViewById(R.id.parentTime);
-        holder.content=(TextView)convertView.findViewById(R.id.parentContent);
-        //父标题左上角内容
-        holder.leftTv.setText(getGroup(groupPosition).getParentType());
-        //父标题右上角内容
-        holder.rightTv.setText(getGroup(groupPosition).getParentTime());
-        //父标题内容
-        holder.content.setText(getGroup(groupPosition).getParentContent());
+        ParentViewHolder holder=getParentViewHolder(convertView);
+        if (isExpanded){
+            RelativeLayout relativeLayout=(RelativeLayout)convertView.findViewById(R.id.relative);
+            relativeLayout.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.course_top_title_shape));
+        }
+        try {
+            //父标题左上角内容
+            holder.leftTv.setText(getGroup(groupPosition).getParentType());
+            //父标题右上角内容
+            holder.rightTv.setText(getGroup(groupPosition).getParentTime());
+            //父标题内容
+            holder.content.setText(getGroup(groupPosition).getParentContent());
+        }catch (Exception e){
 
+        }
         return convertView;
     }
 
@@ -160,28 +147,39 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildCourseAndSignUpInfo child=getChild(groupPosition,childPosition);
         int childType=child.getChildType();
-        if (convertView==null ){
+       /* if (convertView==null ){
             convertView=getChildrenView(child);
+            Log.d("ruihe","---->childView无视图<-----");
+            }*/
+        TextView content;
+        ImageView leftImage;
+        convertView=getChildrenView(child);
+        if (isLastChild){
+            RelativeLayout relativeLayout=(RelativeLayout)convertView.findViewById(R.id.relative);
+            relativeLayout.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.course_bottle_title_shape));
+        }
+       // ChildViewHolder childHolder= getChildHolder(convertView, childType);
+        try {
+            switch (childType) {
+                case TITLE:
+                    content=(TextView)convertView.findViewById(R.id.childTitle_content);
+                    content.setText(child.getChildContent());
+                    break;
+                case DOC:
+                    leftImage=(ImageView)convertView.findViewById(R.id.childDoc_left);
+                    content=(TextView)convertView.findViewById(R.id.childDoc_content);
+                    leftImage.setImageResource(R.drawable.ratio_4);
+                    content.setText(child.getChildContent());
+                    break;
+                case VIDEO:
+                    leftImage=(ImageView)convertView.findViewById(R.id.childVideo_left);
+                    content=(TextView)convertView.findViewById(R.id.childVideo_Content);
+                    leftImage.setImageResource(R.drawable.ratio_100);
+                    content.setText(child.getChildContent());
+                    break;
             }
-        ChildViewHolder childHolder=new ChildViewHolder();
-        switch (childType){
-            case TITLE:
-                childHolder.content=(TextView)convertView.findViewById(R.id.childTitle_content);
-                childHolder.content.setText(child.getChildContent());
-                break;
-            case DOC:
-                childHolder.leftImage=(ImageView)convertView.findViewById(R.id.childDoc_left);
-                childHolder.content=(TextView)convertView.findViewById(R.id.childDoc_content);
-                childHolder.leftImage.setImageResource(R.drawable.ratio_4);
-                childHolder.content.setText(child.getChildContent());
-                break;
-            case VIDEO:
-                childHolder.leftImage=(ImageView)convertView.findViewById(R.id.childVideo_left);
-                childHolder.rightImage=(ImageView)convertView.findViewById(R.id.childVideo_right);
-                childHolder.content=(TextView)convertView.findViewById(R.id.childVideo_Content);
-                childHolder.leftImage.setImageResource(R.drawable.ratio_100);
-                childHolder.content.setText(child.getChildContent());
-                break;
+        }catch (Exception e){
+
         }
 
         return convertView;
@@ -206,15 +204,60 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         }
     }
 
-    public   class ViewHolder{
+
+    public ParentViewHolder getParentViewHolder(View view) {
+        ParentViewHolder parentViewHolder=(ParentViewHolder)view.getTag();
+        if (parentViewHolder==null){
+            parentViewHolder=new ParentViewHolder(view);
+            view.setTag(parentViewHolder);
+        }
+        return parentViewHolder;
+    }
+
+    public   class ParentViewHolder {
         TextView leftTv;
         TextView rightTv;
         TextView content;
+
+        public ParentViewHolder(View v){
+            leftTv=(TextView)v.findViewById(R.id.parentType);
+            rightTv=(TextView)v.findViewById(R.id.parentTime);
+            content=(TextView)v.findViewById(R.id.parentContent);
+        }
     }
+
+    public ChildViewHolder getChildHolder(View view, int type){
+        ChildViewHolder childViewHolder=(ChildViewHolder)view.getTag();
+        if (childViewHolder==null){
+            childViewHolder=new ChildViewHolder(view,type);
+            view.setTag(childViewHolder);
+        }
+
+        return childViewHolder;
+
+    }
+
     public   class ChildViewHolder{
         TextView content;
         ImageView leftImage;
         ImageView rightImage;
+
+        public ChildViewHolder(View v,int type){
+            switch (type){
+                case TITLE:
+                    content=(TextView)v.findViewById(R.id.childTitle_content);
+                    break;
+                case DOC:
+                    leftImage=(ImageView)v.findViewById(R.id.childDoc_left);
+                    content=(TextView)v.findViewById(R.id.childDoc_content);
+                    break;
+                case VIDEO:
+                    leftImage=(ImageView)v.findViewById(R.id.childVideo_left);
+                    rightImage=(ImageView)v.findViewById(R.id.childVideo_right);
+                    content=(TextView)v.findViewById(R.id.childVideo_Content);
+                    break;
+            }
+        }
 
     }
 

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="100dp"
-    android:layout_margin="10dp"
-    android:background="@drawable/course_signup_parent_item_bg">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   >
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:background="#00000000" />
 
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/course_signup_parent_item_bg">
         <TextView
             android:id="@+id/parentType"
             android:layout_width="wrap_content"
@@ -39,5 +52,5 @@
             android:padding="5dp"
             android:textSize="16dp"
             android:text="Moto X拆装机教程"/>
-
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
