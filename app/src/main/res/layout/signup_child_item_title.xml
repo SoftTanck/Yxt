@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:background="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:id="@+id/sign_up_item_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/task_apply_system"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:id="@+id/childTitle_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/task_info"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/sign_up_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/sign_up_item_left"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="Moto X拆装机教程"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -54,6 +54,30 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity {
     private void initExpandListView() {
         pullRefreshExpandableList = (PullToRefreshExpandableListView) findViewById(R.id.pull_refresh_expandable_list);
         //expandableListView=(ExpandableListView)findViewById(R.id.expand);
+       if (type.equals("mySchoolBag")) {
+           adapter = new SchoolBagAndSignUpExpandAdapter(this, getCourseInfo());
+       }else {
+           adapter = new SchoolBagAndSignUpExpandAdapter(this, getSignUpInfo());
+       }
+        //setListAdapter(adapter);
+        expandableListView = pullRefreshExpandableList.getLv();
+        expandableListView.setAdapter(adapter);
+        expandableListView.setGroupIndicator(null);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (i != groupPosition && expandableListView.isGroupExpanded(i)) {
+                        expandableListView.collapseGroup(i);
+                    }
+                }
+            }
+        });
+    }
+
+
+    private List<CourseAndSignUpInfo>getCourseInfo(){
+        list.clear();
         CourseAndSignUpInfo info = new CourseAndSignUpInfo();
         info.setParentType("其他");
         info.setParentTime("3天后过期");
@@ -99,20 +123,47 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity {
                 list.add(info1);
             }
         }
-        adapter = new SchoolBagAndSignUpExpandAdapter(this, list);
-        //setListAdapter(adapter);
-        expandableListView = pullRefreshExpandableList.getLv();
-        expandableListView.setAdapter(adapter);
-        expandableListView.setGroupIndicator(null);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (i != groupPosition && expandableListView.isGroupExpanded(i)) {
-                        expandableListView.collapseGroup(i);
-                    }
-                }
-            }
-        });
+
+        return list;
+
     }
+
+    private List<CourseAndSignUpInfo> getSignUpInfo(){
+        list.clear();
+        CourseAndSignUpInfo info = new CourseAndSignUpInfo();
+        info.setParentType("其他");
+        info.setParentTime("2015-09-30过期");
+        info.setParentContent("1500元申购妩媚红16GMotoX+1开放版");
+        ChildCourseAndSignUpInfo child0 = new ChildCourseAndSignUpInfo();
+        child0.setChildType(3);
+        child0.setChildContent("1500元申购妩媚红16GMotoX+1开放版");
+        List<ChildCourseAndSignUpInfo> childCourseAndSignUpInfo = new ArrayList<>();
+        childCourseAndSignUpInfo.add(child0);
+        info.setList(childCourseAndSignUpInfo);
+
+        CourseAndSignUpInfo info1 = new CourseAndSignUpInfo();
+        info1.setParentType("其他");
+        info1.setParentTime("2015-09-30过期");
+        info1.setParentContent("2800元申购黑色64GMotoXT1115开放版");
+        ChildCourseAndSignUpInfo child1 = new ChildCourseAndSignUpInfo();
+        child1.setChildType(3);
+        child1.setChildContent("2800元申购黑色64GMotoXT1115开放版");
+        List<ChildCourseAndSignUpInfo> childCourseAndSignUpInfo1 = new ArrayList<>();
+        childCourseAndSignUpInfo1.add(child1);
+        info1.setList(childCourseAndSignUpInfo1);
+
+        for (int i = 0; i < 100; i++) {
+            if ((i % 2) == 0) {
+                list.add(info);
+            } else {
+                list.add(info1);
+            }
+
+        }
+        return list;
+
+    }
+
+
+
 }

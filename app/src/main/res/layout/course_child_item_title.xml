@@ -15,7 +15,7 @@
         android:layout_marginRight="20dp">
 
         <ImageView
-            android:id="@+id/childDoc_left"
+            android:id="@+id/sign_up_item_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/task_course"
@@ -31,11 +31,11 @@
             android:layout_marginRight="5dp"
             android:layout_alignParentRight="true"/>
         <TextView
-            android:id="@+id/childTitle_content"
+            android:id="@+id/sign_up_item_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/childDoc_left"
+            android:layout_toRightOf="@id/sign_up_item_left"
             android:padding="5dp"
             android:textSize="16dp"
             android:text="Moto X拆装机教程"/>
