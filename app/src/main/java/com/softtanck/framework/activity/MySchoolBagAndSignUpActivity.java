@@ -1,6 +1,7 @@
 
 package com.softtanck.framework.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ExpandableListView;
 
@@ -172,7 +173,10 @@ public class MySchoolBagAndSignUpActivity extends BaseActivity implements Expand
     public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
         String content=list.get(groupPosition).getList().get(childPosition).getChildContent();
         showToast("选中的子视图："+content);
-
+        if (list.get(groupPosition).getList().get(childPosition).getChildType()==3) {
+            Intent intent = new Intent(MySchoolBagAndSignUpActivity.this, SignUpActivity.class);
+            startActivity(intent);
+        }
         return false;
     }
 
