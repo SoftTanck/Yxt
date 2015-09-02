@@ -29,7 +29,7 @@ public class TitleView extends FrameLayout {
     private int defaultHeight;
     private LinearLayout layLeft, layRight;
     private TextView textLeft, textRight;
-
+    private LinearLayout linearLayout;
     private static int menuId = Integer.MAX_VALUE / 2;
 
     public TitleView(Context context) {
@@ -45,6 +45,7 @@ public class TitleView extends FrameLayout {
 
         // 组合控件
         LayoutInflater.from(context).inflate(R.layout.view_title, this);
+        linearLayout = (LinearLayout) findViewById(R.id.linear1);
         txTitle = (TextView) findViewById(R.id.tx_title);
         layLeft = (LinearLayout) findViewById(R.id.layout_left);
         layRight = (LinearLayout) findViewById(R.id.layout_right);
@@ -63,8 +64,16 @@ public class TitleView extends FrameLayout {
         ta.recycle();
     }
 
+    public void setTitleViewBackGround(int color) {
+        linearLayout.setBackgroundColor(getResources().getColor(color));
+    }
+
     public void setTitle(int textId) {
         txTitle.setText(textId);
+    }
+
+    public void setTitleColor(int color) {
+        txTitle.setTextColor(color);
     }
 
     public TextView getTitle() {

@@ -26,13 +26,11 @@ import android.widget.ExpandableListView;
 import com.softtanck.framework.pulltorefresh.internal.EmptyViewMethodAccessor;
 
 public class PullToRefreshExpandableListView extends PullToRefreshAdapterViewBase<ExpandableListView> {
-
-	private ExpandableListView lv;
-
 	public ExpandableListView getLv() {
 		return lv;
 	}
 
+	private  ExpandableListView lv;
 	public PullToRefreshExpandableListView(Context context) {
 		super(context);
 	}
@@ -56,6 +54,7 @@ public class PullToRefreshExpandableListView extends PullToRefreshAdapterViewBas
 
 	@Override
 	protected ExpandableListView createRefreshableView(Context context, AttributeSet attrs) {
+
 		if (VERSION.SDK_INT >= VERSION_CODES.GINGERBREAD) {
 			lv = new InternalExpandableListViewSDK9(context, attrs);
 		} else {

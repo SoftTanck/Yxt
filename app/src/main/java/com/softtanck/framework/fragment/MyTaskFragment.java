@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.softtanck.framework.ConValue;
 import com.softtanck.framework.R;
 import com.softtanck.framework.activity.MySchoolBagAndSignUpActivity;
 import com.softtanck.framework.activity.YiQuanerActivity;
@@ -39,7 +40,6 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     private NewsPagerAdapter adapter;
     private int currentItem;
     private int currentIndex;
-
 
     private boolean isTouch;
     private Handler handler = new Handler() {
@@ -164,21 +164,23 @@ public class MyTaskFragment extends BaseFragment implements ViewPager.OnPageChan
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        Bundle bundle = null;
-        switch (v.getId()) {
-            case R.id.tv_home_news_count:
-            case R.id.tv_home_news_top_one:
-                Intent YiQuaner = new Intent(context, YiQuanerActivity.class);
-                startActivity(YiQuaner);
-                break;
-            case R.id.quicklySignUp:
-                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class, bundle);
-                break;
-            case R.id.mySchoolBag:
-                holder.changeActivityWithBundle(MySchoolBagAndSignUpActivity.class, bundle);
-                break;
-
-        }
+            switch (v.getId()) {
+                case R.id.tv_home_news_count:
+                case R.id.tv_home_news_top_one:
+                    Intent YiQuaner = new Intent(context, YiQuanerActivity.class);
+                    startActivity(YiQuaner);
+                    break;
+                case R.id.quicklySignUp:
+                    Intent quickIntent = new Intent(context, MySchoolBagAndSignUpActivity.class);
+                    quickIntent.putExtra(ConValue.FUNCTION_TYPE_TAG,"quicklySignUp");
+                    startActivity(quickIntent);
+                    break;
+                case R.id.mySchoolBag:
+                    Intent mySchoolIntent = new Intent(context, MySchoolBagAndSignUpActivity.class);
+                    mySchoolIntent.putExtra(ConValue.FUNCTION_TYPE_TAG,"mySchoolBag");
+                    startActivity(mySchoolIntent);
+                    break;
+            }
     }
 
 
