@@ -28,22 +28,38 @@ import com.softtanck.framework.view.TitleView;
  * @Description TODO 所有Activity的基类
  * @date Jan 16, 2015 5:20:57 PM
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
-    /** 标题*/
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+    /**
+     * 标题
+     */
     public TitleView titleView;
-    /** 视图填充器*/
+    /**
+     * 视图填充器
+     */
     public LayoutInflater inflater;
-    /** Fragment管理*/
+    /**
+     * Fragment管理
+     */
     public FragmentManager fragmentManager;
-    /** json数据帮助类*/
+    /**
+     * json数据帮助类
+     */
     public Gson gson;
-    /** Volley请求队列*/
+    /**
+     * Volley请求队列
+     */
     public RequestQueue requestQueue;
-    /** 图片加载*/
+    /**
+     * 图片加载
+     */
     public ImageLoader imageLoader;
-    /** 上下文*/
+    /**
+     * 上下文
+     */
     public Context context;
-    /** 网络工具*/
+    /**
+     * 网络工具
+     */
     public VolleyUtils volleyUtils;
     private FragmentTransaction fragmentTransaction;
 
@@ -84,6 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     /**
      * 如果需要点击就直接重写该方法
+     *
      * @param v
      */
     @Override
@@ -114,6 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mToast.setView(view);
         mToast.show();
     }
+
     /**
      * 设置布局展示的View
      */
@@ -151,13 +169,25 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    /**Activity带参数跳转
+    /**
+     * Activity带参数跳转
+     *
      * @param activity
      * @param bundle
      */
-    public void changeActivityWithBundle(Class<?>activity,Bundle bundle){
-        Intent intent=new Intent(this,activity);
-        intent.putExtra(ConValue.FUNCTION_TYPE_TAG,bundle);
+    public void changeActivityWithBundle(Class<?> activity, Bundle bundle) {
+        Intent intent = new Intent(this, activity);
+        intent.putExtra(ConValue.FUNCTION_TYPE_TAG, bundle);
+        startActivity(intent);
+    }
+
+    /**
+     * Activity跳转,不带参数
+     *
+     * @param activity
+     */
+    public void changeAc(Class<?> activity) {
+        Intent intent = new Intent(context, activity);
         startActivity(intent);
     }
 }

@@ -1,6 +1,7 @@
 package com.softtanck.framework.activity;
 
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.softtanck.framework.R;
 import com.softtanck.framework.adapter.QuanerAdapter;
@@ -16,7 +17,7 @@ import java.util.List;
  * @Description : TODO
  * @date 8/27/2015
  */
-public class YiQuanerActivity extends BaseActivity implements PullToRefreshBase.OnRefreshListener {
+public class YiQuanerActivity extends BaseActivity implements PullToRefreshBase.OnRefreshListener, AdapterView.OnItemClickListener {
 
     private PullToRefreshListView listView;
 
@@ -45,10 +46,16 @@ public class YiQuanerActivity extends BaseActivity implements PullToRefreshBase.
         adapter = new QuanerAdapter(context, list);
         listView.setAdapter(adapter);
         listView.setOnRefreshListener(this);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
-    public void onRefresh(PullToRefreshBase refreshView) {
+        public void onRefresh(PullToRefreshBase refreshView) {
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        changeAc(WebContentActivity.class);
     }
 }
