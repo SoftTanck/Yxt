@@ -47,8 +47,8 @@
         <activity android:name=".activity.MySchoolBagAndSignUpActivity" />
         <activity android:name="com.softtanck.framework.activity.WebContentActivity" />
         <activity android:name="com.softtanck.framework.activity.CommentActivity" />
-        <activity
-            android:name=".activity.SignUpActivity"/>
+        <activity android:name=".activity.SignUpActivity"/>
+        <activity android:name=".activity.PersonInfoAndSystemSettingActivity"/>
         <!-- 开机自启动服务 -->
         <receiver android:name="com.easemob.chat.StartServiceReceiver">
             <intent-filter android:priority="1000">
@@ -58,7 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </receiver>
-
 
         <!-- 设置环信应用的appkey -->
         <meta-data

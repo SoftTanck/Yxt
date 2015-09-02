@@ -2,7 +2,6 @@ package com.softtanck.framework.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,8 +11,6 @@ import android.view.ViewGroup;
 
 import com.android.volley.RequestQueue;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.softtanck.framework.activity.BaseActivity;
 import com.softtanck.framework.utils.VolleyUtils;
