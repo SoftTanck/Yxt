@@ -1,11 +1,190 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/sign_up_first_linear"
     tools:context="com.softtanck.framework.activity.SignUpActivity">
+<LinearLayout
 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+   >
     <include
         android:id="@+id/comm_titleView"
-        layout="@layout/view_common_title"/>
+        layout="@layout/view_common_title" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="1500元申购妩媚红16GMoto X+1开放版"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:id="@+id/sign_up_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/sign_up_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sign_up_bg"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:text="我要报名"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/sign_up_persons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/sign_up_bg"
+                android:text="26/26"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/sign_up_persons"
+                android:text="人已报名"
+                android:textColor="@color/gray_black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up_linear"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cancel_attent"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:text="我要报名"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+        <ImageView
+            android:id="@+id/sign_up_time_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sign_up_time"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/sign_up_time_img"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/sign_up_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报名开始时间"
+            android:gravity="center_vertical"
+            android:textColor="@color/gray_black" />
+        <TextView
+            android:id="@+id/sign_up_start_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up_start_time"
+            android:textColor="@color/gray_black"
+            android:layout_marginTop="20dp"
+            android:text="2015-08-07 10:00:00"/>
+            <TextView
+                android:id="@+id/sign_up_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="报名结束时间"
+                android:gravity="center_vertical"
+                android:textColor="@color/red" />
+            <TextView
+                android:id="@+id/sign_up_end_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sign_up_start_time"
+                android:textColor="@color/gray_black"
+                android:layout_marginTop="20dp"
+                android:text="2015-09-30 23:59:59"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+        <ImageView
+            android:id="@+id/sign_up_explain_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/task_attend_info"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/sign_up_explain_img"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/sign_up_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="报名说明"
+                android:gravity="center_vertical"
+                android:textColor="@color/blue" />
+            <TextView
+                android:id="@+id/sign_up_explain_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sign_up_start_time"
+                android:textColor="@color/gray_black"
+                android:layout_marginTop="20dp"
+                android:text="有惊喜！！MOTO红机再次开抢！！！看好信息，火速下手！如你中意这款，请点击报名；若你所爱非他，请残忍拒绝！"/>
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
+</ScrollView>
