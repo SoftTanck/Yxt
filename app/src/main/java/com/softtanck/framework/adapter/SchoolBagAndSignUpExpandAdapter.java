@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.softtanck.framework.R;
 import com.softtanck.framework.bean.ChildCourseAndSignUpInfo;
 import com.softtanck.framework.bean.CourseAndSignUpInfo;
+import com.softtanck.framework.view.RoundProgressView;
 
 import java.util.List;
 
@@ -152,6 +153,8 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
             holder.rightTv.setText(getGroup(groupPosition).getParentTime());
             //父标题内容
             holder.content.setText(getGroup(groupPosition).getParentContent());
+            //父标题百分比
+            holder.roundProgress.setProgress(groupPosition);
         } catch (Exception e) {
 
         }
@@ -257,11 +260,13 @@ public class SchoolBagAndSignUpExpandAdapter extends BaseExpandableListAdapter {
         TextView leftTv;
         TextView rightTv;
         TextView content;
+        RoundProgressView roundProgress;
 
         public ParentViewHolder(View v) {
             leftTv = (TextView) v.findViewById(R.id.parentType);
             rightTv = (TextView) v.findViewById(R.id.parentTime);
             content = (TextView) v.findViewById(R.id.parentContent);
+            roundProgress=(RoundProgressView)v.findViewById(R.id.roundProgress);
         }
     }
 

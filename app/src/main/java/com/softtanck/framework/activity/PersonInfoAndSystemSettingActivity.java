@@ -25,6 +25,8 @@ public class PersonInfoAndSystemSettingActivity extends BaseActivity {
     protected void onActivityCreate() {
         initTitle();
 
+
+
     }
 
     private void initTitle() {

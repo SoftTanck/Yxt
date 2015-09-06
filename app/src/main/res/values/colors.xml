@@ -30,4 +30,6 @@
     <!--绿色 -->
     <color name="green">#008000</color>
     <color name="blue">#00AAE9</color>
+    <color name="transparent">#00000000</color>
+    <color name="yellow">#ffff00</color>
 </resources>

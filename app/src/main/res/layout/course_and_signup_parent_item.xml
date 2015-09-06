@@ -33,20 +33,25 @@
             android:text="3天后过期"
             android:padding="5dp"
             android:layout_alignParentRight="true"/>
-        <ImageView
-            android:id="@+id/circle"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/circle"
+        <com.softtanck.framework.view.RoundProgressView
+            xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/roundProgress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
             android:layout_below="@id/parentType"
-            android:layout_marginTop="5dp"
-            />
+            android_custom:roundColor="#D1D1D1"
+            android_custom:roundProgressColor="@color/blue"
+            android_custom:textColor="#9A32CD"
+            android_custom:textIsDisplayable="true"
+            android_custom:roundWidth="5dip"
+            android_custom:textSize="18sp"/>
         <TextView
             android:id="@+id/parentContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/parentType"
-            android:layout_toRightOf="@id/circle"
+            android:layout_toRightOf="@id/roundProgress"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:padding="5dp"
