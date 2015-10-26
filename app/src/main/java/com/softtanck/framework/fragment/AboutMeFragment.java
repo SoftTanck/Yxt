@@ -40,6 +40,7 @@ public class AboutMeFragment extends BaseFragment{
     @Override
     public void onClick(View v) {
         super.onClick(v);
+
         switch (v.getId()){
             case R.id.personInfo:
                 Intent intent=new Intent(holder, PersonInfoAndSystemSettingActivity.class);
